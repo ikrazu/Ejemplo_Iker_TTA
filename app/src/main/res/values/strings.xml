@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Adibide3_1</string>
     <string name="action_settings">Settings</string>
-    <string name="passwd_label"></string>
-    <string name="passwd_edit"></string>
+    <string name="passwd_label">Contraseña</string>
+    <string name="passwd_edit">Introduce password</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="access">Acceder</string>
+    <string name="user">Usuario</string>
+    <string name="question">¿Cual de las siguientes ...?</string>
+    <string name="title_activity_exercise">ExerciseActivity</string>
 </resources>

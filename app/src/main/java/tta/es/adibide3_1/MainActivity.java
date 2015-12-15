@@ -1,6 +1,10 @@
 package tta.es.adibide3_1;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         EditText editLogin = (EditText)findViewById(R.id.login);
         EditText editPasswd = (EditText)findViewById(R.id.passwd);
         intent.putExtra(EXTRA_LOGIN, editLogin.getText().toString());
-        intent.putExtra(EXTRA_PASSWD, editLogin.getText().toString());
+        intent.putExtra(EXTRA_PASSWD, editPasswd.getText().toString());
+        view.setEnabled();
         startActivity(intent);
     }
 
@@ -28,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, R.string.no_micro, Toast.LENGTH_SHORT).show();
         else {
             Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
-            if (intent.resolveActivity(getPackageManager()) != null)
+            if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivityForResult(intent, AUDIO_REQUEST_CODE);
                 //hemen zerbait falta da???
+            }
             else
                 Toast.makeText(this, R.string.no_app, Toast.LENGTH_SHORT).show();
         }
