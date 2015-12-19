@@ -6,7 +6,12 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_test">TestActivity</string>
     <string name="access">Acceder</string>
-    <string name="user">Usuario</string>
+    <string name="user_label">Usuario</string>
+    <string name="user_edit">Introduce DNI</string>
     <string name="question">¿Cual de las siguientes ...?</string>
     <string name="title_activity_exercise">ExerciseActivity</string>
+    <string name="upload_file">Subir fichero</string>
+    <string name="take_photo">Sacar foto</string>
+    <string name="record_audio">Grabar audio</string>
+    <string name="record_video">Grabar video</string>
 </resources>
