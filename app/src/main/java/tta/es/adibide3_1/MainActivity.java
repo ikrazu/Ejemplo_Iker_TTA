@@ -17,8 +17,16 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    public final static String EXTRA_LOGIN = "es.tta.ejemplo31.login";
-    public final static String EXTRA_PASSWD = "es.tta.ejemplo31.passwd";
+    public final static String EXTRA_LOGIN = "tta.es.ejemplo31.login";
+    public final static String EXTRA_PASSWD = "tta.es.ejemplo31.passwd";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+    }
 
     public void login(View view){
         Intent intent = new Intent(this, MenuActivity.class);
@@ -26,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
         EditText editPasswd = (EditText)findViewById(R.id.passwd);
         intent.putExtra(EXTRA_LOGIN, editLogin.getText().toString());
         intent.putExtra(EXTRA_PASSWD, editPasswd.getText().toString());
-        view.setEnabled();
         startActivity(intent);
     }
 
-    public void recordAudio(View view){
+    /*public void recordAudio(View view){
         if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE))
             Toast.makeText(this, R.string.no_micro, Toast.LENGTH_SHORT).show();
         else {
@@ -58,5 +65,5 @@ public class MainActivity extends AppCompatActivity {
                 sendFile(pictureUri);
                 break;
         }
-    }
+    }*/
 }
