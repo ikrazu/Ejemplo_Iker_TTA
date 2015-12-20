@@ -13,9 +13,39 @@
     tools:showIn="@layout/activity_exercise">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/exercise_wording"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/button_send_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_file"/>
+
+        <Button
+            android:id="@+id/button_take_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_photo"/>
+
+        <Button
+            android:id="@+id/button_record_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/record_audio"/>
+
+        <Button
+            android:id="@+id/button_record_video"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/record_video"/>
 
     </LinearLayout>
 
