@@ -40,14 +40,15 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nuevo ejercicio"
-            android:onClick="test" />
+            android:text="Nuevo ejercicio"/>
+            <!--android:onClick="test"-->
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seguimiento"
-            android:onClick="test" />
+            android:text="Seguimiento"/>
+            <!--android:onClick="test"-->
+
     </LinearLayout>
 
 </RelativeLayout>

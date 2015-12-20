@@ -12,4 +12,32 @@
     tools:context="tta.es.adibide3_1.TestActivity"
     tools:showIn="@layout/activity_test">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView android:text="@string/question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/test_choices"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- populated programatically -->
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_send_test"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_send"
+            android:onClick="enviar" />
+
+    </LinearLayout>
+
 </RelativeLayout>

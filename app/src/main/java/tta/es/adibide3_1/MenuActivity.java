@@ -21,4 +21,9 @@ public class MenuActivity extends AppCompatActivity{
         textLogin.setText("Bienvenido "+intent.getStringExtra(MainActivity.EXTRA_LOGIN));
 
     }
+
+    public void test(View view){
+        Intent intent = new Intent(this, TestActivity.class);
+        startActivity(intent);
+    }
 }
