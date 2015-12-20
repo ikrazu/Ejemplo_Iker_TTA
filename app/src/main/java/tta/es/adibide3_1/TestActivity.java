@@ -6,6 +6,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -16,18 +20,24 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+        TextView textView = (TextView)findViewById(R.id.test_wording);
+        textView.setText("Galdera?");
+        RadioGroup radioGroup = (RadioGroup)findViewById(R.id.test_choices);
+        for(int i=0;i<5;i++) {
+            RadioButton radioButton = new RadioButton(this);
+            radioButton.setText("erantzuna" + i);
+            radioButton.setOnClickListener(this);
+            radioGroup.addView(radioButton);
+        }
+
     }
 
     @Override
     public void onClick(View v) {
+        findViewById(R.id.button_send_test).setVisibility(View.VISIBLE);
+    }
 
+    public void send(View view) {
+        
     }
 }
