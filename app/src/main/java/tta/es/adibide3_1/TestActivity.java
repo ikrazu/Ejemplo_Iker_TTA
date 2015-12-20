@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
     private int correct=0;
+    private String advise="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             radioGroup.addView(radioButton);
         }
         correct=2;
+        advise="The manifest describes the components of the application: the activities...";
 
     }
 
@@ -64,12 +67,18 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(getApplicationContext(), "¡Correcto!", Toast.LENGTH_SHORT).show();
         }
 
-
-        //RadioGroup radioGroup = (RadioGroup)findViewById(R.id.test_choices);
-        //int choices = radioGroup.getChildCount();
     }
 
     public void help(View view) {
+        WebView webView = new WebView(this);
+        //webView.loadUrl(advise);
+        webView.loadData(advise, "text/html", null);
+        webView.setBackgroundColor(Color.TRANSPARENT);
+        webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
+
+        LinearLayout layout = (LinearLayout)findViewById(R.id.test_layout);
+        layout.addView(webView);
+        layout.removeView(findViewById(R.id.button_help_test));
 
     }
 }
