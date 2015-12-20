@@ -18,6 +18,7 @@ public class MenuActivity extends AppCompatActivity{
 
         Intent intent = getIntent();
         TextView textLogin = (TextView)findViewById(R.id.menu_login);
-        textLogin.setText(intent.getStringExtra(MainActivity.EXTRA_LOGIN));
+        textLogin.setText("Bienvenido "+intent.getStringExtra(MainActivity.EXTRA_LOGIN));
+
     }
 }

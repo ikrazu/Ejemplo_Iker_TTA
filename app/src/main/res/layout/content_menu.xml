@@ -12,4 +12,42 @@
     tools:context="tta.es.adibide3_1.MenuActivity"
     tools:showIn="@layout/activity_menu">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/menu_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text="Bienvenido"/>
+
+        <TextView android:text="Leccion 1: Introduccion a Android"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo test"
+            android:onClick="test" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo ejercicio"
+            android:onClick="test" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seguimiento"
+            android:onClick="test" />
+    </LinearLayout>
+
 </RelativeLayout>

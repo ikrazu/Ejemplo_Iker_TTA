@@ -1,41 +1,26 @@
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="tta.es.example.MenuActivity">
+    android:fitsSystemWindows="true"
+    tools:context="tta.es.adibide3_1.MenuActivity">
 
-    <TextView
-        android:id="@+id/menu_login"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:text="Bienvenido"/>
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TextView android:text="Leccion 1: Introduccion a Android"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nuevo test"
-        android:onClick="test" />
+    </android.support.design.widget.AppBarLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nuevo ejercicio"
-        android:onClick="test" />
+    <include layout="@layout/content_menu" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Seguimiento"
-        android:onClick="test" />
-
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
