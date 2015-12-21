@@ -1,6 +1,8 @@
 package tta.es.adibide3_1;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -37,8 +39,8 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             radioGroup.addView(radioButton);
         }
         correct=2;
-        advise="The manifest describes the components of the application: the activities...";
-
+        //advise="The manifest describes the components of the application: the activities...";
+        advise="http://www.realsociedad.com";
     }
 
     @Override
@@ -70,15 +72,21 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void help(View view) {
-        WebView webView = new WebView(this);
-        //webView.loadUrl(advise);
-        webView.loadData(advise, "text/html", null);
-        webView.setBackgroundColor(Color.TRANSPARENT);
-        webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
-        LinearLayout layout = (LinearLayout)findViewById(R.id.test_layout);
-        layout.addView(webView);
-        layout.removeView(findViewById(R.id.button_help_test));
+        if(advise.contains("://")){
+            Uri uri = Uri.parse(advise);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }else {
+            WebView webView = new WebView(this);
+            //webView.loadUrl(advise);
+            webView.loadData(advise, "text/html", null);
+            webView.setBackgroundColor(Color.TRANSPARENT);
+            webView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null);
 
+            LinearLayout layout = (LinearLayout) findViewById(R.id.test_layout);
+            layout.addView(webView);
+            layout.removeView(findViewById(R.id.button_help_test));
+        }
     }
 }

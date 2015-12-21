@@ -2,6 +2,7 @@ package tta.es.adibide3_1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -35,6 +36,18 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_LOGIN, editLogin.getText().toString());
         intent.putExtra(EXTRA_PASSWD, editPasswd.getText().toString());
         startActivity(intent);
+    }
+
+    private String loadLogin(){//erabili gabe
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        return preferences.getString(EXTRA_LOGIN, null);
+    }
+
+    private void saveLogin(String login){//erabili gabe
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(EXTRA_LOGIN, login);
+        editor.commit();
     }
 
     /*public void recordAudio(View view){
