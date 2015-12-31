@@ -40,7 +40,8 @@
             android:id="@+id/button_record_audio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/record_audio"/>
+            android:text="@string/record_audio"
+            android:onClick="recordAudio"/>
 
         <Button
             android:id="@+id/button_record_video"

@@ -18,4 +18,5 @@
     <string name="button_help">Ver ayuda</string>
     <string name="no_camera">Su dispositivo no tiene cámara</string>
     <string name="no_app">Su dispositivo no tiene una aplicación de cámara</string>
+    <string name="no_micro">Su dispositivo no tiene micrófono</string>
 </resources>

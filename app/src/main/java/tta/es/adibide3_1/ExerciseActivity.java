@@ -1,5 +1,6 @@
 package tta.es.adibide3_1;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -22,6 +23,7 @@ public class ExerciseActivity extends AppCompatActivity {
     private Uri pictureUri;
 
     private static final int VIDEO_REQUEST_CODE = 200;
+    private static final int AUDIO_REQUEST_CODE = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,32 @@ public class ExerciseActivity extends AppCompatActivity {
                 startActivityForResult(intent, VIDEO_REQUEST_CODE);
             else
                 Toast.makeText(this, R.string.no_app, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void recordAudio(View view){
+        if(!getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE))
+            Toast.makeText(this, R.string.no_micro, Toast.LENGTH_SHORT).show();
+        else{
+            Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+            if (intent.resolveActivity(getPackageManager()) != null)
+                startActivityForResult(intent, AUDIO_REQUEST_CODE);
+            else
+                Toast.makeText(this, R.string.no_app, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (resultCode != Activity.RESULT_OK)
+            return;
+        switch (requestCode){
+            case VIDEO_REQUEST_CODE:
+                break;
+            case PICTURE_REQUEST_CODE:
+                break;
+            case AUDIO_REQUEST_CODE:
+                break;
         }
     }
 
