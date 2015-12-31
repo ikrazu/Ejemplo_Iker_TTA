@@ -94,14 +94,18 @@ public class ExerciseActivity extends AppCompatActivity {
             case VIDEO_REQUEST_CODE:
                 break;
             case PICTURE_REQUEST_CODE:
-                //sendFile(pictureUri);
+                sendFile(pictureUri);
                 break;
             case AUDIO_REQUEST_CODE:
-                //sendFile(data.getData());
+                sendFile(data.getData());
                 break;
             case READ_REQUEST_CODE:
                 break;
         }
+    }
+
+    public void sendFile(Uri uri){
+        Toast.makeText(this, "\"Subir fichero\" sin implementar", Toast.LENGTH_SHORT).show();
     }
 
 }
