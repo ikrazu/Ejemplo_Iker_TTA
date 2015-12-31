@@ -24,6 +24,7 @@ public class ExerciseActivity extends AppCompatActivity {
 
     private static final int VIDEO_REQUEST_CODE = 200;
     private static final int AUDIO_REQUEST_CODE = 300;
+    private static final int READ_REQUEST_CODE = 400;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,14 @@ public class ExerciseActivity extends AppCompatActivity {
         }
     }
 
+    public void sendFile(View view){
+        //Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        //intent.addCategory(Intent.CATEGORY_OPENABLE);
+        //intent.setType("*/*");
+        //startActivityForResult(intent, READ_REQUEST_CODE);
+        Toast.makeText(this, "\"Subir fichero\" sin implementar", Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if (resultCode != Activity.RESULT_OK)
@@ -85,8 +94,12 @@ public class ExerciseActivity extends AppCompatActivity {
             case VIDEO_REQUEST_CODE:
                 break;
             case PICTURE_REQUEST_CODE:
+                //sendFile(pictureUri);
                 break;
             case AUDIO_REQUEST_CODE:
+                //sendFile(data.getData());
+                break;
+            case READ_REQUEST_CODE:
                 break;
         }
     }

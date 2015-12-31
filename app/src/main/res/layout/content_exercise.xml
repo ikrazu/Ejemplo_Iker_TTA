@@ -27,7 +27,8 @@
             android:id="@+id/button_send_file"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/upload_file"/>
+            android:text="@string/upload_file"
+            android:onClick="sendFile"/>
 
         <Button
             android:id="@+id/button_take_photo"

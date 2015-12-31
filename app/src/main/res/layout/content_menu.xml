@@ -46,8 +46,8 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Seguimiento"/>
-            <!--android:onClick="test"-->
+            android:text="Seguimiento"
+            android:onClick="seguimiento"/>
 
     </LinearLayout>
 
