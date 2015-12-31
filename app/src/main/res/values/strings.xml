@@ -16,4 +16,6 @@
     <string name="record_video">Grabar video</string>
     <string name="button_send">Enviar</string>
     <string name="button_help">Ver ayuda</string>
+    <string name="no_camera">Su dispositivo no tiene cámara</string>
+    <string name="no_app">Su dispositivo no tiene una aplicación de cámara</string>
 </resources>
