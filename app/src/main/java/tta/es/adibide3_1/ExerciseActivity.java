@@ -21,6 +21,8 @@ public class ExerciseActivity extends AppCompatActivity {
     private static final int PICTURE_REQUEST_CODE = 100;
     private Uri pictureUri;
 
+    private static final int VIDEO_REQUEST_CODE = 200;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,18 @@ public class ExerciseActivity extends AppCompatActivity {
                 }catch (IOException e){
                 }
             }else
+                Toast.makeText(this, R.string.no_app, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void recordVideo(View view){
+        if( !getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA))
+            Toast.makeText(this, R.string.no_camera, Toast.LENGTH_SHORT).show();
+        else{
+            Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+            if (intent.resolveActivity(getPackageManager()) != null)
+                startActivityForResult(intent, VIDEO_REQUEST_CODE);
+            else
                 Toast.makeText(this, R.string.no_app, Toast.LENGTH_SHORT).show();
         }
     }

@@ -46,7 +46,8 @@
             android:id="@+id/button_record_video"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/record_video"/>
+            android:text="@string/record_video"
+            android:onClick="recordVideo"/>
 
     </LinearLayout>
 
