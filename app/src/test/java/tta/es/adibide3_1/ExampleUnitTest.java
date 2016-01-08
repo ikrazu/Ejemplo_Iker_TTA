@@ -2,6 +2,8 @@ package tta.es.adibide3_1;
 
 import org.junit.Test;
 
+import tta.es.adibide3_1.bean.Test;
+
 import static org.junit.Assert.*;
 
 /**

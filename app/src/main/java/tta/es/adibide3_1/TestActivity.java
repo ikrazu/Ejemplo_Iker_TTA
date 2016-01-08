@@ -1,20 +1,24 @@
 package tta.es.adibide3_1;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
-import android.webkit.WebView;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.MediaController;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
+
+import tta.es.adibide3_1.bean.Choice;
+import tta.es.adibide3_1.bean.Data;
+import tta.es.adibide3_1.bean.Test;
 
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,18 +33,25 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Data data = new Data();
+        Test test = data.getTest();
+
         TextView textView = (TextView)findViewById(R.id.test_wording);
-        textView.setText("Galdera?");
+        textView.setText(test.getQuestion());
         RadioGroup radioGroup = (RadioGroup)findViewById(R.id.test_choices);
-        for(int i=0;i<5;i++) {
+        for(Choice choice : test.getChoices()) {
             RadioButton radioButton = new RadioButton(this);
-            radioButton.setText("erantzuna" + i);
+            radioButton.setText(choice.getAnswer());
             radioButton.setOnClickListener(this);
             radioGroup.addView(radioButton);
+            if(choice.getCorrect())
+                correct=choice.getIdChoice();
         }
-        correct=2;
+        //correct=2;
         //advise="The manifest describes the components of the application: the activities...";
-        advise="http://www.realsociedad.com";
+        //advise="http://www.realsociedad.com";
+        //advise="https://youtu.be/IcgeyZGwbGA";
+        advise="https://drive.google.com/file/d/0B_jaKEE9PVDWYlhOdTFvVDVGSXc/view?usp=sharing";
     }
 
     @Override
@@ -73,7 +84,7 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
 
     public void help(View view) {
 
-        if(advise.contains("://")){
+        /*if(advise.contains("://")){
             Uri uri = Uri.parse(advise);
             Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(intent);
@@ -87,6 +98,36 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
             LinearLayout layout = (LinearLayout) findViewById(R.id.test_layout);
             layout.addView(webView);
             layout.removeView(findViewById(R.id.button_help_test));
-        }
+        }*/
+        showVideo(advise);
+        LinearLayout layout = (LinearLayout) findViewById(R.id.test_layout);
+        layout.removeView(findViewById(R.id.button_help_test));
+    }
+
+    private void showVideo(String advise){
+        VideoView videoView = new VideoView(this);
+        videoView.setVideoURI(Uri.parse(advise));
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        videoView.setLayoutParams(params);
+
+        MediaController mediaController = new MediaController(this) {
+            @Override
+            public void hide(){
+            }
+
+            @Override
+            public boolean dispatchKeyEvent(KeyEvent keyEvent){
+                if(keyEvent.getKeyCode() == keyEvent.KEYCODE_BACK)
+                    finish();
+                return super.dispatchKeyEvent(keyEvent);
+            }
+        };
+        mediaController.setAnchorView(videoView);
+        videoView.setMediaController(mediaController);
+
+        LinearLayout layout = (LinearLayout) findViewById(R.id.test_layout);
+        layout.addView(videoView);
+        videoView.start();
     }
 }
