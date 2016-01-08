@@ -1,5 +1,6 @@
 package tta.es.adibide3_1;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.RadioButton;
@@ -23,8 +25,8 @@ import tta.es.adibide3_1.bean.Test;
 
 public class TestActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private int correct=0;
-    private String advise="";
+    private int correct;
+    private String advise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +53,8 @@ public class TestActivity extends AppCompatActivity implements View.OnClickListe
         //advise="The manifest describes the components of the application: the activities...";
         //advise="http://www.realsociedad.com";
         //advise="https://youtu.be/IcgeyZGwbGA";
-        advise="https://drive.google.com/file/d/0B_jaKEE9PVDWYlhOdTFvVDVGSXc/view?usp=sharing";
+        //advise="https://drive.google.com/file/d/0B_jaKEE9PVDWYlhOdTFvVDVGSXc/view?usp=sharing";
+        advise=test.getAdvise().getAdviseURL();
     }
 
     @Override

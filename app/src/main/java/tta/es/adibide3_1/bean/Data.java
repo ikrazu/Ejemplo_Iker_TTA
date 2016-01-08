@@ -12,7 +12,7 @@ public class Data {
 
         test.setQuestion("¿Cuál de las siguientes opciones...?");
 
-        Advise advise = new Advise("http://www.realsociedad.com", Advise.AdviseType.HTML);
+        Advise advise = new Advise("https://youtu.be/IcgeyZGwbGA", Advise.AdviseType.HTML);
         //The manifest describes the components of the application: the activities...
         //http://www.realsociedad.com
         //https://youtu.be/IcgeyZGwbGA
