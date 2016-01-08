@@ -1,5 +1,8 @@
 package tta.es.adibide3_1.bean;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -12,12 +15,14 @@ public class Data {
 
         test.setQuestion("¿Cuál de las siguientes opciones...?");
 
-        Advise advise = new Advise("https://youtu.be/IcgeyZGwbGA", Advise.AdviseType.HTML);
+        Advise advise = new Advise("http://techslides.com/demos/sample-videos/small.mp4", Advise.AdviseType.HTML);
         //The manifest describes the components of the application: the activities...
         //http://www.realsociedad.com
         //https://youtu.be/IcgeyZGwbGA
         //https://drive.google.com/file/d/0B_jaKEE9PVDWYlhOdTFvVDVGSXc/view?usp=sharing
+        //http://u017633.ehu.eus:18080/static/AndroidManifest.mp4
         test.setAdvise(advise);
+
 
         ArrayList<Choice> choices = new ArrayList<Choice>();
         for (int i=0;i<5;i++){
@@ -34,5 +39,11 @@ public class Data {
         test.setChoices(choices);
 
         return test;
+    }
+
+    public Test getTest2(){
+        Test test = new Test();
+        JSONObject json = new JSONObject();
+        return null;
     }
 }
